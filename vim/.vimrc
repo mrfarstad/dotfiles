@@ -2,6 +2,14 @@
 let mapleader = ","
 let g:mapleader = ","
 
+let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
+set noshowmatch         " Don't match parentheses/brackets
+set nocursorline        " Don't paint cursor line
+set nocursorcolumn      " Don't paint cursor column
+set lazyredraw          " Wait to redraw
+set scrolljump=8        " Scroll 8 lines at a time at bottom/top
+let html_no_rendering=1 " Don't render italic, bold, links in HTML
+
 " Show line number
 set number
 
@@ -40,6 +48,7 @@ Plug 'w0rp/ale'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'soli/prolog-vim'
 call plug#end()
 
 set termguicolors
@@ -79,7 +88,8 @@ let g:ale_fixers = {
             \   'python': ['yapf', 'isort'],
             \   'c++': ['clang-format'],
             \   'sh': ['shfmt'],
-            \   'haskell': ['hfmt']
+            \   'haskell': ['hfmt'],
+            \   'prolog': ['swipl']
             \}
 
 let g:ale_linters = {
@@ -94,3 +104,5 @@ let g:ale_linters = {
   noremap <C-l> :tabnext<CR>|                       " next tab in normal mode
   noremap <C-h> :tabprevious<CR>|                   " prev tab in normal mode
   noremap <C-t> :tabnew<CR>|                        " new tab in normal mode
+
+  au FileType perl set filetype=prolog
