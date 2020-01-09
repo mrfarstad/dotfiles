@@ -1,6 +1,9 @@
 let mapleader = ","
 let g:mapleader = ","
 
+"Automatically change the current directory
+autocmd BufEnter * silent! lcd %:p:h
+
 set number
 
 set backspace=2
