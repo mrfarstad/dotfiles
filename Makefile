@@ -1,3 +1,5 @@
+all: vim zsh
+
 vim:
 	stow vim
 	curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -6,4 +8,7 @@ vim:
 	vim +PlugInstall +qa
 	vim +PlugUpdate +qa
 
-.PHONY: vim
+zsh:
+	stow zsh
+
+.PHONY: vim zsh
