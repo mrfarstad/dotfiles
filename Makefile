@@ -10,5 +10,6 @@ vim:
 
 zsh:
 	stow zsh
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 .PHONY: vim zsh

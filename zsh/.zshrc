@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/martinfarstad/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Path to ssh
 export SSH_KEY_PATH=$HOME/.ssh/rsa_id
@@ -110,6 +110,10 @@ function c() {
   cd ~/Code/"$1"
 }
 
+function d() {
+  cd ~/dotfiles/"$1"
+}
+
 function lg() {
   cd ~/Code/lego/"$1"
 }
@@ -122,7 +126,11 @@ function s() {
   cd ~/Code/school_projects/"$1"
 }
 
-function d() {
+function dm() {
+  cd ~/Code/school_projects/dmark/"$1"
+}
+
+function dmpro() {
   cd ~/Code/school_projects/dmpro/"$1"
 }
 
@@ -179,24 +187,11 @@ export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
 #For pkg-config to find ruby you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export LC_ALL=en_US.UTF-8
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 #make conda command work
 export PATH="/usr/local/anaconda3/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 alias cat='mdcat'
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
