@@ -12,4 +12,7 @@ zsh:
 	stow zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-.PHONY: vim zsh
+neovim:
+	ln -v -F -s ~/dotfiles/neovim/ ~/.config/nvim
+
+.PHONY: vim zsh neovim

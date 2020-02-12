@@ -178,9 +178,6 @@ alias cc='gcc-9'
 alias g++='gcc-9'
 alias c++='gcc-9'
 
-#If you need to have ruby first in your PATH run:
-echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
-
 #For compilers to find ruby you may need to set:
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
@@ -194,4 +191,4 @@ export LC_ALL=en_US.UTF-8
 export PATH="/usr/local/anaconda3/bin:$PATH"
 
 alias cat='mdcat'
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+alias vim='nvim'
