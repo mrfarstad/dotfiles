@@ -15,4 +15,5 @@ zsh:
 neovim:
 	ln -v -F -s ~/dotfiles/neovim/ ~/.config/nvim
 
+
 .PHONY: vim zsh neovim

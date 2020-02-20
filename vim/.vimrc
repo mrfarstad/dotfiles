@@ -28,12 +28,13 @@ Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'soli/prolog-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'stevearc/vim-arduino'
 call plug#end()
 
 set termguicolors
@@ -58,7 +59,7 @@ let g:ale_fixers = {
             \   'c++': ['clang-format'],
             \   'sh': ['shfmt'],
             \   'haskell': ['hfmt'],
-            \   'prolog': ['swipl']
+            \   'prolog': ['swipl'],
             \}
 
 let g:ale_linters = {
@@ -66,7 +67,7 @@ let g:ale_linters = {
             \ 'cpp': [ 'clang', 'clangtidy', 'cppcheck', 'cpplint', 'gcc' ],
             \ 'javascript': ['eslint', 'flow','prettier'],
             \ 'css': ['stylelint', 'prettier'],
-            \ 'python': ['pycodestyle', 'flake8'],
+            \ 'python': ['pycodestyle', 'flake8', 'jedi'],
             \ 'graphql': ['prettier', 'eslint'],
             \}
 
