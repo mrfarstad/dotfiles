@@ -139,15 +139,19 @@ function x() {
 }
 
 function p() {
-  cd ~/Code/school_projects/parallel_computing/"$1"
+  cd ~/Code/school_projects/dmark/cache-prefetcher/"$1"
 }
 
 function cv() {
   cd ~/Code/school_projects/computer_vision/"$1"
 }
 
+function a() {
+  cd ~/Documents/Arduino/"$1"
+}
+
 function eit() {
-  cd ~/Code/school_projects/eit/"$1"
+  cd ~/Documents/Arduino/eit-digital-twin/"$1"
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
