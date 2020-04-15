@@ -1,32 +1,63 @@
+" ****************
+" * Key bindings *
+" ****************
 let mapleader = ","
 let g:mapleader = ","
+let g:mapleader = ","
 
-"Automatically change the current directory
-autocmd BufEnter * silent! lcd %:p:h
+" m (used for marking) when using vim-easyclip
+nnoremap gm m
+  
+" keep original d-button functionality (before vim-cutlass)
+nnoremap d d
+xnoremap d d
+nnoremap dd dd
+nnoremap D D
 
-set number
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-set backspace=2
+" ***********
+" * General *
+" ***********
+set number                " Show line numbers
+set hidden                " Edit multiple buffers without saving the modifications made to a buffer while loading other buffers
+set noswapfile            " No swap files
 
+set hlsearch              " Highlight all search results
+set ignorecase            " Ignore case on search
+set autoindent            " Autoindent on new line
+set expandtab             " Use spaces, not tabs
+set shiftwidth=2          " Set tab to 2 spaces
 set softtabstop=2
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set scrolloff=3           " Display 3 lines around cursor
+set incsearch             " Enable incremental search
+set clipboard=unnamed     " Use system clipboard
 
-filetype indent on
-set autoindent
+set scrolloff=3           " Display 3 lines around cursor
+set noshowmode            " Remove -- INSERT -- from status bar
+set updatetime=100        " If this many milliseconds nothing is typed the swap file will be written to disk (Useful for Ale)
+set ttimeoutlen=10        " Quick normal / instert toggle
 
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+filetype indent plugin on " Fix indenting
 
-set noswapfile
+set hlsearch              " Highlight all matches
+set incsearch             " Incrementally show matched pattern when searching
+set ignorecase            " Ignore case.
+set smartcase             " Do not ignore case if search contains uppercase letter
+
+" Spellcheck
+augroup text_langs
+  autocmd!
+  autocmd FileType tex,text,markdown setlocal spell
+  autocmd FileType tex,text,markdown setlocal spelllang=nb,en_us
+augroup end
 
 call plug#begin()
 Plug 'joshdick/onedark.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-rooter'
 Plug 'dense-analysis/ale'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -35,6 +66,7 @@ Plug 'mxw/vim-jsx'
 Plug 'soli/prolog-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'stevearc/vim-arduino'
+Plug 'svermeulen/vim-cutlass'
 call plug#end()
 
 set termguicolors
@@ -85,9 +117,6 @@ au FileType perl set filetype=prolog
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
-
-" if hidden is not set, TextEdit might fail.
-set hidden
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -215,9 +244,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-"#--------------------------------------
-"# Fzf
-"#--------------------------------------
+"*****************************
+"* Configure fzf (+ ripgrep) *
+"*****************************
 function! Custom_files()
   if isdirectory(".git")
     :GFiles
@@ -235,7 +264,9 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.{.git,node_mo
 autocmd! FileType fzf
 autocmd  FileType fzf set noshowmode noruler nonu
 
-" Arduino conf
+"****************
+"* Arduino conf *
+"****************
 nnoremap <buffer> <leader>am :ArduinoVerify<CR>
 nnoremap <buffer> <leader>au :ArduinoUpload<CR>
 nnoremap <buffer> <leader>ad :ArduinoUploadAndSerial<CR>
