@@ -28,11 +28,11 @@ set hlsearch              " Highlight all search results
 set ignorecase            " Ignore case on search
 set autoindent            " Autoindent on new line
 set expandtab             " Use spaces, not tabs
-set shiftwidth=2          " Set tab to 2 spaces
-set softtabstop=2
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab " Set tab to 4 spaces
 set scrolloff=3           " Display 3 lines around cursor
 set incsearch             " Enable incremental search
 set clipboard=unnamed     " Use system clipboard
+
 
 set scrolloff=3           " Display 3 lines around cursor
 set noshowmode            " Remove -- INSERT -- from status bar
@@ -45,6 +45,10 @@ set hlsearch              " Highlight all matches
 set incsearch             " Incrementally show matched pattern when searching
 set ignorecase            " Ignore case.
 set smartcase             " Do not ignore case if search contains uppercase letter
+
+set comments+=b:-   " Add bullets automatically
+set formatoptions+=ro
+
 
 " Spellcheck
 augroup text_langs
@@ -65,8 +69,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'soli/prolog-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'stevearc/vim-arduino'
 Plug 'svermeulen/vim-cutlass'
+Plug 'dkarter/bullets.vim'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 set termguicolors
@@ -264,12 +269,13 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.{.git,node_mo
 autocmd! FileType fzf
 autocmd  FileType fzf set noshowmode noruler nonu
 
-"****************
-"* Arduino conf *
-"****************
-nnoremap <buffer> <leader>am :ArduinoVerify<CR>
-nnoremap <buffer> <leader>au :ArduinoUpload<CR>
-nnoremap <buffer> <leader>ad :ArduinoUploadAndSerial<CR>
-nnoremap <buffer> <leader>ab :ArduinoChooseBoard<CR>
-nnoremap <buffer> <leader>ap :ArduinoChooseProgrammer<CR>
 
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]
+
+let g:bullets_outline_levels = ['num', 'abc', 'std*']
