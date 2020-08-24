@@ -154,6 +154,10 @@ function eit() {
   cd ~/Documents/Arduino/eit-digital-twin/"$1"
 }
 
+function cl() {
+  cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"$1"
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #export PATH="/usr/local/opt/llvm/bin:$PATH"
 #
@@ -196,3 +200,4 @@ export PATH="/usr/local/anaconda3/bin:$PATH"
 
 alias cat='mdcat'
 alias vim='nvim'
+
