@@ -14,9 +14,6 @@ xnoremap d d
 nnoremap dd dd
 nnoremap D D
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
 " ***********
 " * General *
 " ***********
@@ -248,6 +245,23 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" *************
+" * EasyAlign *
+" *************
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" EasyAlign Custom Rules
+" See https://github.com/junegunn/vim-easy-align#extending-alignment-rules
+let g:easy_align_delimiters = {
+\ '\': {
+\     'pattern':         '\\' },
+\ '/': {
+\     'pattern':         '//\+\|/\*\|\*/',
+\     'delimiter_align': 'l',
+\     'ignore_groups':   ['!Comment'] },
+\ }
 
 "*****************************
 "* Configure fzf (+ ripgrep) *
