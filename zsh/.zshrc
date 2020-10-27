@@ -126,6 +126,10 @@ function s() {
   cd ~/Code/school_projects/"$1"
 }
 
+function t() {
+  cd ~/Code/school_projects/thesis/"$1"
+}
+
 function dm() {
   cd ~/Code/school_projects/dmark/"$1"
 }
@@ -175,16 +179,17 @@ export C_INCLUDE_PATH="/usr/local/opt/openblas/include"
 export PATH=/usr/local/bin:$PATH
 
 # Make default CC argument in Makefiles the gcc-9 compiler
-export CC='gcc-9'
+#export CC='gcc-9'
+export CC='gcc'
 
 # If CC is declared (e.g. CC=gcc) in Makefile, we want to override this"
-alias make='make CC=gcc-9'
+#alias make='make CC=gcc-9'
 
 # When compiling using the shell, use gcc-9 instead of built-in gcc
-alias gcc='gcc-9'
-alias cc='gcc-9'
-alias g++='gcc-9'
-alias c++='gcc-9'
+#alias gcc='gcc-9'
+#alias cc='gcc-9'
+#alias g++='gcc-9'
+#alias c++='gcc-9'
 
 #For compilers to find ruby you may need to set:
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
@@ -200,4 +205,5 @@ export PATH="/usr/local/anaconda3/bin:$PATH"
 
 alias cat='mdcat'
 alias vim='nvim'
-
+alias tm='tmux new-session -A -s main'
+alias hpc='ssh -t hpclab13 "tmux new-session -A -s main"'
