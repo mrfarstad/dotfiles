@@ -276,6 +276,8 @@ endfunction
 
 nnoremap <C-p> :call Custom_files()<CR>
 nnoremap <C-O> :Buffers<CR>
+nnoremap <C-f> :Rg<CR>
+nnoremap <C-n> :noh<CR>
 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.{.git,node_modules,venv}/*"'
 
