@@ -69,6 +69,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'svermeulen/vim-cutlass'
 Plug 'dkarter/bullets.vim'
 Plug 'preservim/nerdtree'
+Plug 'lervag/vimtex'
 call plug#end()
 
 set termguicolors
