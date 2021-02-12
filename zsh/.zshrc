@@ -126,8 +126,16 @@ function s() {
   cd ~/Code/school_projects/"$1"
 }
 
+function m() {
+  cd ~/Code/master_thesis/"$1"
+}
+
 function t() {
-  cd ~/Code/school_projects/thesis/"$1"
+  cd ~/Code/thesis/"$1"
+}
+
+function tp() {
+  cd ~/Code/thesis_plotter/"$1"
 }
 
 function dm() {
@@ -200,10 +208,21 @@ export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
 export LC_ALL=en_US.UTF-8
 
-#make conda command work
-export PATH="/usr/local/anaconda3/bin:$PATH"
+export PATH=/usr/local/opt/llvm/bin:$PATH # Add clangd
+export PATH="/usr/local/anaconda3/bin:$PATH" # Add conda
+export PATH=~/nvvp/bin:$PATH # Add nvvp
+
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home
+#export JAVA_HOME=/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre
+
 
 alias cat='mdcat'
 alias vim='nvim'
 alias tm='tmux new-session -A -s main'
 alias hpc='ssh -t hpclab13 "tmux new-session -A -s main"'
+alias r='./scripts/yme/yme_example_run.sh'
+alias d='~/Code/thesis/scripts/yme/yme_gdb.sh'
+
+bindkey -s '^f' 'vim -c ":Rg"^M'
+bindkey -s '^p' 'vim -c ":call Custom_files()"^M'
