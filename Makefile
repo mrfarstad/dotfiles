@@ -13,7 +13,8 @@ zsh:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 neovim:
-	ln -v -F -s ~/dotfiles/neovim/ ~/.config/nvim
+	ln -v -F -s ~/dotfiles/nvim/ ~/.config/nvim
+
 
 
 .PHONY: vim zsh neovim
