@@ -110,7 +110,7 @@ function c() {
   cd ~/Code/"$1"
 }
 
-function d() {
+function df() {
   cd ~/dotfiles/"$1"
 }
 
@@ -123,7 +123,7 @@ function lw() {
 }
 
 function s() {
-  cd ~/Code/school_projects/"$1"
+  cd ~/Code/specialization_project/"$1"
 }
 
 function m() {
@@ -136,34 +136,6 @@ function t() {
 
 function tp() {
   cd ~/Code/thesis_plotter/"$1"
-}
-
-function dm() {
-  cd ~/Code/school_projects/dmark/"$1"
-}
-
-function dmpro() {
-  cd ~/Code/school_projects/dmpro/"$1"
-}
-
-function x() {
-  cd ~/Code/personal_projects/"$1"
-}
-
-function p() {
-  cd ~/Code/school_projects/dmark/cache-prefetcher/"$1"
-}
-
-function cv() {
-  cd ~/Code/school_projects/computer_vision/"$1"
-}
-
-function a() {
-  cd ~/Documents/Arduino/"$1"
-}
-
-function eit() {
-  cd ~/Documents/Arduino/eit-digital-twin/"$1"
 }
 
 function cl() {
