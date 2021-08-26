@@ -5,6 +5,9 @@ let mapleader = ","
 let g:mapleader = ","
 let g:mapleader = ","
 
+"noremap <C-w> :!python3 plot_stencil_depths.py<CR> noremap <C-s> :!for i in $(seq 0 13); do python3 plot_stencil_depths.py $i; done<CR>
+"noremap <C-x> :!bash copy_results.sh<CR>
+
 " m (used for marking) when using vim-easyclip
 nnoremap gm m
   
@@ -12,6 +15,8 @@ nnoremap gm m
 nnoremap d d
 xnoremap d d
 nnoremap dd dd
+
+
 nnoremap D D
 
 " ***********
@@ -33,8 +38,8 @@ set clipboard=unnamed     " Use system clipboard
 
 set scrolloff=3           " Display 3 lines around cursor
 set noshowmode            " Remove -- INSERT -- from status bar
-set updatetime=100        " If this many milliseconds nothing is typed the swap file will be written to disk (Useful for Ale)
-set ttimeoutlen=10        " Quick normal / instert toggle
+"set updatetime=100        " If this many milliseconds nothing is typed the swap file will be written to disk (Useful for Ale)
+set ttimeoutlen=0        " Quick normal / instert toggle
 
 filetype indent plugin on " Fix indenting
 
@@ -70,6 +75,7 @@ Plug 'svermeulen/vim-cutlass'
 Plug 'dkarter/bullets.vim'
 Plug 'preservim/nerdtree'
 Plug 'lervag/vimtex'
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
 call plug#end()
 
 set termguicolors
@@ -90,7 +96,7 @@ let g:ale_fixers = {
             \   'javascript': ['prettier'],
             \   'css': ['prettier'],
             \   'c': ['clang-format'],
-            \   'python': ['yapf', 'isort'],
+            \   'python': ['black'],
             \   'c++': ['clang-format'],
             \   'sh': ['shfmt'],
             \   'haskell': ['hfmt'],
@@ -105,6 +111,8 @@ let g:ale_linters = {
             \ 'python': ['pycodestyle', 'flake8', 'jedi'],
             \ 'graphql': ['prettier', 'eslint'],
             \}
+
+let g:PyFlakeOnWrite = 1
 
 noremap <C-l> :tabnext<CR>|                       " next tab in normal mode
 noremap <C-h> :tabprevious<CR>|                   " prev tab in normal mode
@@ -269,7 +277,7 @@ let g:easy_align_delimiters = {
 "*****************************
 function! Custom_files()
   if isdirectory(".git")
-    :GFiles
+    :GFiles --cached --others
   else
     :Files
   endif

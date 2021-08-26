@@ -122,25 +122,33 @@ function lw() {
   cd ~/Code/lego-webapp/"$1"
 }
 
-function s() {
-  cd ~/Code/specialization_project/"$1"
-}
-
-function m() {
-  cd ~/Code/master_thesis/"$1"
-}
-
-function t() {
-  cd ~/Code/thesis/"$1"
-}
-
-function tp() {
-  cd ~/Code/thesis_plotter/"$1"
-}
+#function s() {
+#  cd ~/Code/specialization_project/"$1"
+#}
+#
+#function m() {
+#  cd ~/Code/master_thesis/"$1"
+#}
+#
+#function t() {
+#  cd ~/Code/thesis/"$1"
+#}
+#
+#function tp() {
+#  cd ~/Code/thesis_plotter/"$1"
+#}
 
 function cl() {
   cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"$1"
 }
+
+function clm() {
+  cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/datateknologi/master/"$1"
+}
+
+#function p() {
+#  pandoc -r markdown-auto_identifiers --top-level-division=chapter -o "$1".tex "$1".md
+#}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #export PATH="/usr/local/opt/llvm/bin:$PATH"
@@ -193,8 +201,26 @@ alias cat='mdcat'
 alias vim='nvim'
 alias tm='tmux new-session -A -s main'
 alias hpc='ssh -t hpclab13 "tmux new-session -A -s main"'
-alias r='./scripts/yme/yme_example_run.sh'
-alias d='~/Code/thesis/scripts/yme/yme_gdb.sh'
+#alias r='./scripts/yme/yme_example_run.sh'
+#alias d='~/Code/thesis/scripts/yme/yme_gdb.sh'
+#alias grammarly="open -a Grammarly"
 
-bindkey -s '^f' 'vim -c ":Rg"^M'
+rga-fzf() {
+	RG_PREFIX="rga --files-with-matches"
+	local file
+	file="$(
+		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+				--phony -q "$1" \
+				--bind "change:reload:$RG_PREFIX {q}" \
+				--preview-window="70%:wrap"
+	)" &&
+        if [[ $file =~ "pdf" ]]; then
+            open "$file"
+        else
+            vim "$file"
+        fi
+}
 bindkey -s '^p' 'vim -c ":call Custom_files()"^M'
+bindkey -s '^f' 'rga-fzf^M'
+#bindkey -s '^f' 'vim -c ":Rg"^M'
